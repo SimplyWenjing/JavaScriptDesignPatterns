@@ -19,7 +19,6 @@
 	var basketModule = (function () {
 		//私有
 		var basket = [];//存放商品
-		var itemName = [];//存放商品名
 		function doSomethingPrivate () {
 			// do something
 		}
@@ -58,3 +57,4 @@
 
 	var totalMoney = basketModule.getTotalMoney();
 	console.log(totalMoney);
+	//console.log(basket);
