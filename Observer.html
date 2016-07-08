@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Observer模式</title>
+</head>
+<body>
+	<button id="addNewObserver">Add new observer checkbox </button>
+	<input id="mainCheckbox" type="checkbox" />
+	<div id="observerContainer"></div>
+	<script type="text/javascript" src="Observer.js"></script>
+	<script type="text/javascript" src="../Code/event.js"></script>
+	<script type="text/javascript">
+		var controlCheckbox = document.getElementById("mainCheckbox");
+		var addBtn          = document.getElementById("addNewObserver");
+		var container       = document.getElementById("observerContainer");  
+
+		extend(new Subject(),controlCheckbox);
+		// EventUtil.addHandler(controlCheckbox,"click",controlCheckbox.Notify(controlCheckbox.checked)());
+		controlCheckbox["onclick"] = new Function ("controlCheckbox.Notify(controlCheckbox.checked)");
+		EventUtil.addHandler(addBtn,"click",AddNewObserver);
+		// addBtn["onclick"] = AddNewObserver;
+		function AddNewObserver () {
+			var check = document.createElement("input");
+			check.type = "checkbox";
+			extend(new Observer(),check);
+			check.Update = function (value) {
+				this.checked = value;
+			};
+			controlCheckbox.AddObserver(check);
+			container.appendChild(check);
+		}
+	</script>
+
+</body>
+</html>
