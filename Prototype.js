@@ -10,4 +10,4 @@ var myFriend = {
 };
 
 var yourFriend = Object.create(myFriend);
-console.log(yourFriend.name);
+console.log(yourFriend.name);//jay
