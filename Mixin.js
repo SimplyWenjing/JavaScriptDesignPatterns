@@ -3,7 +3,7 @@ var Car = function (settings) {
 	this.color = settings.color; 
 };
 
-//Mixin
+//Mixin,用于让其他子类继承的
 var Mixin = function () {};
 Mixin.prototype = {
 	driveForward: function () {
@@ -14,7 +14,7 @@ Mixin.prototype = {
 	}
 };
 
-//通过一个方法将现有对象扩展到另一个对象上
+//通过一个方法将现有对象扩展到另一个对象上！！！！
 function extend (receivingClass,givingClass) {
 	for (var methodName in givingClass.prototype){
 		if(! receivingClass.prototype[methodName]){
